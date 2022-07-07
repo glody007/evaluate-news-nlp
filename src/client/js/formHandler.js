@@ -3,7 +3,7 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     const formText = document.getElementById('text').value
-    if(Client.notEmpty(formText)) {
+    if(Client.notEmpty(formText) && formText.match(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)) {
         console.log("::: Form Submitted :::")
         fetch('http://localhost:9000/test', {
             method: 'POST',
@@ -11,7 +11,7 @@ function handleSubmit(event) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({article: formText})
+            body: JSON.stringify({url: formText})
         })
         .then(res => res.json())
         .then(function(res) {
@@ -20,7 +20,7 @@ function handleSubmit(event) {
             document.getElementById('text_snippet').innerHTML = res.sentence_list[0].text
         })
     } else {
-        alert('Text field must be filled')
+        alert('Enter a valid url')
     }
 }
 

@@ -42,7 +42,7 @@ app.post('/test', function (req, res) {
 
     const options = {
         hostname: 'api.meaningcloud.com',
-        path: encodeURI(`/sentiment-2.1?key=${process.env.API_KEY}&lang=en&txt=${req.body.article}`),
+        path: encodeURI(`/sentiment-2.1?key=${process.env.API_KEY}&lang=en&url=${req.body.url}`),
         method: 'POST',
         headers: {
            
