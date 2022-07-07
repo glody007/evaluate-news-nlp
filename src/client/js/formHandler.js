@@ -1,9 +1,13 @@
+function isUrl(formText) {
+    return formText.match(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)
+}
+
 function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
     const formText = document.getElementById('text').value
-    if(Client.notEmpty(formText) && formText.match(/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/)) {
+    if(Client.notEmpty(formText) && isUrl(formText)) {
         console.log("::: Form Submitted :::")
         fetch('http://localhost:9000/test', {
             method: 'POST',
