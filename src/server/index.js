@@ -8,6 +8,21 @@ dotenv.config();
 
 const app = express()
 
+/* Dependencies */
+/* Middleware*/
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+// Here we are configuring express to use body-parser as middle-ware.
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+// Cors for cross origin allowance
+app.use(cors());
+
 app.use(express.static('dist'))
 
 console.log(__dirname)
