@@ -10,7 +10,7 @@ test("Testing the notEmpty() function", () => {
     // The expect() function, in combination with a Jest matcher, is used to check if the function produces the expected output
     // The general syntax is `expect(myFunction(arg1, arg2, ...)).toEqual(expectedValue);`, where `toEqual()` is a matcher
     expect(notEmpty).toBeDefined();
-    expect(notEmpty(inputs[0])).toEqual(true)
-    expect(notEmpty(inputs[1])).toEqual(false)
-    expect(notEmpty(inputs[2])).toEqual(true)
+    expect(notEmpty(inputs[0])).toEqual(outputs[0])
+    expect(notEmpty(inputs[1])).toEqual(outputs[1])
+    expect(notEmpty(inputs[2])).toEqual(outputs[2])
 })});
