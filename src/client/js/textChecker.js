@@ -13,4 +13,10 @@ function checkForName(inputText) {
     }
 }
 
-export { checkForName }
+function notEmpty(inputText) {
+    console.log("Checking if input is not empty")
+    if(inputText) return true
+    return false
+}
+
+export { checkForName, notEmpty }

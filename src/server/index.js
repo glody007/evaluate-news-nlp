@@ -37,12 +37,12 @@ app.listen(process.env.PORT, function () {
     console.log(`Example app listening on port ${process.env.PORT}!`)
 })
 
-app.get('/test', function (req, res) {
+app.post('/test', function (req, res) {
     const text = 'Main dishes were quite good, but desserts were too sweet for me.' 
 
     const options = {
         hostname: 'api.meaningcloud.com',
-        path: encodeURI(`/sentiment-2.1?key=${process.env.API_KEY}&lang=en&txt=${text}`),
+        path: encodeURI(`/sentiment-2.1?key=${process.env.API_KEY}&lang=en&txt=${req.body.article}`),
         method: 'POST',
         headers: {
            

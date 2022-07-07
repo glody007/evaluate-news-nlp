@@ -19,14 +19,18 @@
         <main>
             <section>
                 <form class="" onsubmit="return handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name">
+                    <textarea id="text" rows="20" name="input" value="" onblur="onBlur()" placeholder="Enter an article"></textarea>
                     <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>
             </section>
 
             <section>
                 <strong>Form Results:</strong>
-                <div id="results"></div>
+                <div id="results">
+                    <p>Polarity: <span id="polarity"></span></p>
+                    <p>Subjectivity: <span id="subjectivity"></span></p>
+                    <p>Text Snippet : <span id="text_snippet"></span></p>
+                </div>
             </section>
         </main>
 
