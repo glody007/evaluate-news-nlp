@@ -15,7 +15,6 @@ function handleSubmit(event) {
         })
         .then(res => res.json())
         .then(function(res) {
-            console.log(res)
             document.getElementById('polarity').innerHTML = res.score_tag
             document.getElementById('subjectivity').innerHTML = res.subjectivity
             document.getElementById('text_snippet').innerHTML = res.sentence_list[0].text
