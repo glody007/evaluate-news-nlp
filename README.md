@@ -24,7 +24,7 @@ src/server: Contains all backend codes
 
 ### Instructions
 
-Clone the project: https://github.com/glody007/evaluate-news-nlp.git
+Clone the project: git clone https://github.com/glody007/evaluate-news-nlp.git
 
 Enter in the project folder: cd evaluate-news-nlp
 
