@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.1",
