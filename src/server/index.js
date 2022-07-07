@@ -1,6 +1,10 @@
 var path = require('path')
 const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
+const https = require('https');
+const { response } = require('express');
+
+const dotenv = require('dotenv');
+dotenv.config();
 
 const app = express()
 
@@ -19,5 +23,33 @@ app.listen(8000, function () {
 })
 
 app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
+    const text = 'Main dishes were quite good, but desserts were too sweet for me.' 
+
+    const options = {
+        hostname: 'api.meaningcloud.com',
+        path: encodeURI(`/sentiment-2.1?key=${process.env.API_KEY}&lang=en&txt=${text}`),
+        method: 'POST',
+        headers: {
+           
+        },
+    };
+
+    const request = https.request(options, response => {
+        const chunks = []
+    
+        response.on('data', chunk => {
+            chunks.push(chunk);
+        });
+    
+        response.on("end", function (chunk) {
+            const body = Buffer.concat(chunks);
+            res.send(JSON.parse(body.toString()))
+        });
+    });
+    
+    request.on('error', error => {
+        console.error(error);
+    });
+      
+    request.end();
 })
